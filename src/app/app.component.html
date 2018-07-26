@@ -1,17 +1,19 @@
-<div class="content" fxLayout="row" fxLayout.xs="column">
+<div class="content" fxLayout="row" fxLayout.xs="column" (click)="debugAll()">
   <div class="p-10" fxFlex="100">
     <iframe id="preview"></iframe>
   </div>
 </div>
 
 <div class="content" fxLayout="row" fxLayout.xs="column">
-  <div class="p-10" fxFlex="33" fxFlex.xs="100">
-    <textarea spellcheck="false" id="html" placeholder="HTML" value=""></textarea>
-  </div>
-  <div class="p-10" fxFlex="33" fxFlex.xs="100">
-    <textarea spellcheck="false" id="css" placeholder="CSS" value=""></textarea>
-  </div>
-  <div class="p-10" fxFlex="33" fxFlex.xs="100">
-    <textarea spellcheck="false" id="js" placeholder="JS" value=""></textarea>
-  </div>
+  <form [formGroup]="allFields">
+    <div class="p-10" fxFlex="33" fxFlex.xs="100">
+      <textarea matInput spellcheck="false" (keydown)="cancelKeys($event)" placeholder="HTML" formControlName="HTML"></textarea>
+    </div>
+    <div class="p-10" fxFlex="33" fxFlex.xs="100">
+      <textarea matInput spellcheck="false" (keydown)="cancelKeys($event)" placeholder="CSS" formControlName="CSS"></textarea>
+    </div>
+    <div class="p-10" fxFlex="33" fxFlex.xs="100">
+      <textarea matInput spellcheck="false" (keydown)="cancelKeys($event)" placeholder="JS" formControlName="JS"></textarea>
+    </div>
+  </form>
 </div>
